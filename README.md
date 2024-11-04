@@ -2,6 +2,15 @@
 
 ...
 
+## Todo for `README.md` file
+
+- [ ] Short description
+- [ ] Long description
+- [ ] Installation
+- [ ] Usage
+- [ ] Plans
+- [ ] Testing
+
 ## Installation
 
 You can install the package via composer:
@@ -16,7 +25,7 @@ composer require usmonaliyev/laravel-simple-rabbitmq
 // Usage description here
 ```
 
-## Todo
+## Plans
 
 - [ ] Setup consumer mode as `routes/actions.php`
 - [ ] Adding `ampq:define-queues` command.
