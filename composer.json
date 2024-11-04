@@ -1,0 +1,59 @@
+{
+  "name": "usmonaliyev/laravel-simple-rabbitmq",
+  "description": "This package provides simple usage of rabbitmq.",
+  "keywords": [
+    "usmonaliyev",
+    "simple",
+    "rabbit",
+    "mq"
+  ],
+  "homepage": "https://github.com/usmonaliyev/laravel-simple-rabbitmq",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Temur Usmonaliyev",
+      "email": "t.usmonaliyev99@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "illuminate/support": "*",
+    "php-amqplib/php-amqplib": "^3.7"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.18",
+    "pestphp/pest": "^1.23",
+    "phpunit/phpunit": "^9.0",
+    "symfony/var-dumper": "^6.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Usmonaliyev\\SimpleRabbit\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Usmonaliyev\\SimpleRabbit\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "stable",
+  "scripts": {
+    "test": "vendor/bin/pest",
+    "test-coverage": "vendor/bin/pest --coverage-html coverage"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Usmonaliyev\\SimpleRabbit\\SimpleRabbitMQServiceProvider"
+      ]
+    }
+  }
+}
