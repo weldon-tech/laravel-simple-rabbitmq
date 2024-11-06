@@ -12,7 +12,7 @@ return [
     | connections below.
     |
     */
-    'queue' => env('SIMPLE_MQ_QUEUE', 'default'),
+    'queue' => env('SIMPLE_MQ_QUEUE', 'simple'),
 
     'connection' => env('SIMPLE_MQ_CONNECTION', 'default'),
 
@@ -66,13 +66,13 @@ return [
 
             'arguments' => [
                 // Sets the time-to-live for messages in this queue to 60000 milliseconds (60 seconds).
-                'x-message-ttl' => 60000,
+                'x-message-ttl' => null,
                 // Limits the maximum number of messages in the queue to 1000.
                 'x-max-length' => 1000,
                 // Specifies the dead-letter exchange to which messages will be sent if they expire.
-                'x-dead-letter-exchange' => 'dead-letter-exchange',
+                'x-dead-letter-exchange' => null,
                 // Routing key for messages that are routed to the dead-letter exchange.
-                'x-dead-letter-routing-key' => 'dead-letter-routing-key',
+                'x-dead-letter-routing-key' => null,
             ],
         ],
     ],
