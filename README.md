@@ -1,14 +1,27 @@
 # laravel-simple-rabbitmq
 
-...
+The package for simplified RabbitMQ usage, supporting multiple connections, easy publishing, and consumer mode.
+
+### Key Features
+
+- **Multiple Connections**: Effortlessly manage multiple RabbitMQ connections within the same application.
+
+- **Exchange supporting**: You can push messages to exchanges
+
+- **Message Publishing**: Easily publish messages to queues and exchange with a fluent, chainable syntax.
+
+- **Consumer Mode**: Enable consumers to receive and process messages from queues in real time.
+
+- **Manage queues and exchanges in config file**: You can register queues and exchanges in `config/simple-mq.php` and
+  define them in easy way which is `amqp:define-queues` command.
 
 ## Todo for `README.md` file
 
-- [ ] Short description
-- [ ] Long description
-- [ ] Installation
+- [x] Short description
+- [x] Long description
+- [x] Installation
 - [ ] Usage
-- [ ] Plans
+- [x] Plans
 - [ ] Testing
 
 ## Installation
@@ -19,6 +32,30 @@ You can install the package via composer:
 composer require usmonaliyev/laravel-simple-rabbitmq
 ```
 
+Next step you must publish config and action register files:
+
+```bash
+php artisan vendor:publish --provider="Usmonaliyev\SimpleRabbit\SimpleRabbitMQServiceProvider"
+```
+
+As a result of this command, you will have a configuration file `config/simple-mq.php` and a registry file
+`routes/actions.php`.
+
+The `config/simple-mq.php` config file contains RabbitMQ connections with credentials, queues, default connection and
+default queue.
+
+The next stage is configure `.env` file.
+
+```.dotenv
+SIMPLE_MQ_CONNECTION=
+SIMPLE_MQ_QUEUE=
+
+SIMPLE_MQ_HOST=
+SIMPLE_MQ_PORT=
+SIMPLE_MQ_USERNAME=
+SIMPLE_MQ_PASSWORD=
+```
+
 ## Usage
 
 ```php
@@ -27,7 +64,7 @@ composer require usmonaliyev/laravel-simple-rabbitmq
 
 ## Plans
 
-- [ ] Setup consumer mode as `routes/actions.php`
+- [x] Setup consumer mode as `routes/actions.php`
 - [ ] Adding `ampq:define-queues` command.
 - [ ] Adding `ampq:make-action {action} {function}` command.
 - [ ] Adding `ampq:listen {connection=''} {queue=''}` command.
