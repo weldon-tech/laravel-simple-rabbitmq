@@ -7,9 +7,9 @@ use Usmonaliyev\SimpleRabbit\MQ\Connection;
 use Usmonaliyev\SimpleRabbit\MQ\MessageBuilder;
 
 /**
- * @method Connection connection(?string $name = null)
- * @method MessageBuilder queue(?string $queueName = null)
- * @method MessageBuilder exchange(string $exchangeName)
+ * @method static Connection connection(?string $name = null)
+ * @method static MessageBuilder queue(?string $queueName = null)
+ * @method static MessageBuilder exchange(string $exchangeName)
  *
  * @see \Usmonaliyev\SimpleRabbit\SimpleMQ
  */

@@ -5,7 +5,7 @@ namespace Usmonaliyev\SimpleRabbit\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method void register(string $action, callable|array $handler)
+ * @method static void register(string $action, callable|array $handler)
  *
  * @see \Usmonaliyev\SimpleRabbit\ActionMQ::class
  */
