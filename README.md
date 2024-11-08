@@ -65,11 +65,12 @@ SIMPLE_MQ_PASSWORD=
 ## Plans
 
 - [x] Setup consumer mode as `routes/actions.php`
-- [ ] Adding `ampq:define-queues` command.
+- [ ] Adding `ampq:define-queues --exchange` command.
 - [ ] Adding `ampq:make-action {action} {function}` command.
 - [ ] Adding `ampq:listen {connection=''} {queue=''}` command.
 - [ ] Writing `README.UZ.md` and `README.RU.md` files.
 - [ ] Setup testing.
+- [ ] Creating telegram group for discussion
 
 ## Testing
 
