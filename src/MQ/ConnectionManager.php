@@ -26,7 +26,7 @@ class ConnectionManager
     /**
      * Get a connection instance.
      *
-     * @throws Exception
+     * @throws Exception Default queue is not configured
      */
     public function connection(?string $name = null): Connection
     {

@@ -74,7 +74,7 @@ class Connection
      *
      * @throws Exception
      */
-    public function getConnection(): AMQPStreamConnection
+    public function getAMQPConnection(): AMQPStreamConnection
     {
         return $this->connection;
     }
@@ -91,11 +91,10 @@ class Connection
 
     /**
      * Definition section manager queues and exchange
-     *
      */
-    public function definition(): Definition
+    public function getDefinition(): Definition
     {
-        return new Definition($this);
+        return new Definition($this->connection);
     }
 
     /**

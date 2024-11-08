@@ -4,11 +4,12 @@ namespace Usmonaliyev\SimpleRabbit\MQ;
 
 use Exception;
 use PhpAmqpLib\Channel\AMQPChannel;
+use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Wire\AMQPTable;
 
 class Definition
 {
-    private Connection $connection;
+    private AMQPStreamConnection $connection;
 
     private AMQPChannel $channel;
 
@@ -42,11 +43,11 @@ class Definition
      */
     private array $arguments = [];
 
-    public function __construct(Connection $connection)
+    public function __construct(AMQPStreamConnection $connection)
     {
         $this->connection = $connection;
 
-        $this->channel = $connection->getChannel();
+        $this->channel = $connection->channel();
     }
 
     /**
@@ -77,6 +78,11 @@ class Definition
         throw new Exception('The function does not have implementation.');
     }
 
+    /**
+     * Setup arguments to create new queue
+     *
+     * @return $this
+     */
     public function setArguments(array $arguments): self
     {
         $this->arguments = $arguments;

@@ -33,7 +33,7 @@ class DefineQueueCommand extends Command
             $arguments = array_filter($queue['arguments'], fn ($argument) => ! is_null($argument));
 
             SimpleMQ::connection($queue['connection'])
-                ->definition()
+                ->getDefinition()
                 ->setArguments($arguments)
                 ->defineQueue($name);
         }
