@@ -62,6 +62,12 @@ SIMPLE_MQ_PASSWORD=
 // Usage description here
 ```
 
+## Contacts
+
+We have telegram group for discussion:
+
+[You can join us with this link](https://t.me/+P7PlyAdDQAJjM2Fi)
+
 ## Plans
 
 - [x] Setup consumer mode as `routes/actions.php`

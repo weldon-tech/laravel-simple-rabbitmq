@@ -49,6 +49,9 @@ class Definition
         $this->channel = $connection->getChannel();
     }
 
+    /**
+     * Define a new queue
+     */
     public function defineQueue(string $name): ?array
     {
         $argTable = $this->getArguments();
@@ -64,6 +67,11 @@ class Definition
         );
     }
 
+    /**
+     * To define new exchange
+     *
+     * @throws Exception Now there is no implementation
+     */
     public function defineExchange(string $name, $type = 'direct'): ?array
     {
         throw new Exception('The function does not have implementation.');
@@ -76,6 +84,9 @@ class Definition
         return $this;
     }
 
+    /**
+     * Creates and returns AMQPTable to define new queue
+     */
     protected function getArguments(): AMQPTable
     {
         return new AMQPTable($this->arguments);

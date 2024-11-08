@@ -62,6 +62,12 @@ return [
             // Specifies the name of the connection to be used for this queue.
             'connection' => 'default',
 
+            /**
+             * Be carefully these arguments because you can define queue one time with these arguments.
+             * After queue is created, you don't change these arguments
+             *
+             * If you must change arguments, delete queue and define them one more time.
+             */
             'arguments' => [
                 /**
                  * Sets the time-to-live for messages in this queue to 60000 milliseconds (60 seconds).
