@@ -2,6 +2,8 @@
 
 namespace Usmonaliyev\SimpleRabbit;
 
+use PhpAmqpLib\Message\AMQPMessage;
+
 class ActionMQ
 {
     /**
@@ -28,4 +30,21 @@ class ActionMQ
     {
         return $this->actions;
     }
+
+    /**
+     * Loading actions from route/actions.php
+     */
+    public function load(): void
+    {
+        $callback = fn () => include_once base_path('routes/actions.php');
+
+        $callback();
+    }
+
+    public function consume(AMQPMessage $message)
+    {
+        $message->ack();
+    }
+
+    public function dispatch() {}
 }
