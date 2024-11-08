@@ -90,6 +90,15 @@ class Connection
     }
 
     /**
+     * Definition section manager queues and exchange
+     *
+     */
+    public function definition(): Definition
+    {
+        return new Definition($this);
+    }
+
+    /**
      * Close channel and connection before destruction
      *
      * @throws Exception
