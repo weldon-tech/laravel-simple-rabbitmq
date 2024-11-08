@@ -3,6 +3,7 @@
 namespace Usmonaliyev\SimpleRabbit;
 
 use Illuminate\Support\ServiceProvider;
+use Usmonaliyev\SimpleRabbit\Console\Commands\DefineQueueCommand;
 use Usmonaliyev\SimpleRabbit\MQ\ConnectionManager;
 
 class SimpleRabbitMQServiceProvider extends ServiceProvider
@@ -17,8 +18,9 @@ class SimpleRabbitMQServiceProvider extends ServiceProvider
 
             $this->publishes([__DIR__.'/../routes/actions.php' => base_path('routes/actions.php')]);
 
-            // Registering package commands.
-            // $this->commands([]);
+            $this->commands([
+                DefineQueueCommand::class,
+            ]);
         }
     }
 
