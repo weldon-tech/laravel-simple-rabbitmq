@@ -186,11 +186,12 @@ If you don't give them, command uses default connection and queue.
 
 <div align="center">
   <h2>Contracts</h2>
-  <div style="margin-bottom: 20px;">
-    <a href="https://t.me/+P7PlyAdDQAJjM2Fi">
+  <div>
+    <a href="https://t.me/+P7PlyAdDQAJjM2Fi" target="_blank">
       We have a telegram group, you can join use.
     </a>
   </div>
+  <br/>
   <img width="30%" src="https://github.com/usmonaliyev99/usmonaliyev99/blob/main/assets/have-you-joined-us.gif?raw=true">
 </div>
 
