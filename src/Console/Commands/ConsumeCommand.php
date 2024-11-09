@@ -5,7 +5,6 @@ namespace Usmonaliyev\SimpleRabbit\Console\Commands;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
 use Usmonaliyev\SimpleRabbit\ActionMQ;
 use Usmonaliyev\SimpleRabbit\Facades\ConsumeMQ;
 

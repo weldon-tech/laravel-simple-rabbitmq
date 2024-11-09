@@ -53,6 +53,8 @@ class ConsumeMQ
 
         $this->channel->basic_consume($queue, '', false, false, false, false, $callback);
 
+        echo "Consumer is listening to \"$queue\" queue...".PHP_EOL;
+
         while ($this->channel->is_consuming()) {
             $this->channel->wait();
         }
