@@ -199,8 +199,8 @@ If you don't give them, command uses default connection and queue.
 </div>
 
 - [x] Setup consumer mode as `routes/actions.php`
-- [ ] Adding `ampq:define-queues --exchange` command.
-- [ ] Adding `ampq:make-action {action} {function}` command.
+- [x] Adding `ampq:define-queues --exchange` command.
+- [x] Adding `ampq:make-action {action} {function}` command.
 - [x] Adding `ampq:listen {connection=''} {queue=''}` command.
 - [ ] Writing `README.UZ.md` and `README.RU.md` files.
 - [ ] Setup testing.
