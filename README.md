@@ -1,4 +1,6 @@
-# laravel-simple-rabbitmq
+<div align="center">
+  <h1>laravel-simple-rabbitmq</h1>
+</div>
 
 The package for simplified RabbitMQ usage, supporting multiple connections, easy publishing, and consumer mode.
 
@@ -15,16 +17,9 @@ The package for simplified RabbitMQ usage, supporting multiple connections, easy
 - **Manage queues and exchanges in config file**: You can register queues and exchanges in `config/simple-mq.php` and
   define them in easy way which is `amqp:define-queues` command.
 
-## Todo for `README.md` file
-
-- [x] Short description
-- [x] Long description
-- [x] Installation
-- [ ] Usage
-- [x] Plans
-- [ ] Testing
-
-## Installation
+<div align="center">
+  <h2>Installation</h2>
+</div>
 
 You can install the package via composer:
 
@@ -39,7 +34,7 @@ php artisan vendor:publish --provider="Usmonaliyev\SimpleRabbit\SimpleRabbitMQSe
 ```
 
 As a result of this command, you will have a configuration file `config/simple-mq.php` and a registry file
-`routes/actions.php`.
+`routes/amqp-handlers.php`.
 
 The `config/simple-mq.php` config file contains RabbitMQ connections with credentials, queues, default connection and
 default queue.
@@ -56,7 +51,9 @@ SIMPLE_MQ_USERNAME=
 SIMPLE_MQ_PASSWORD=
 ```
 
-## Usage
+<div align="center">
+  <h2>Usage</h2>
+</div>
 
 The package can publish and consume messages
 
@@ -91,6 +88,8 @@ Also, `exchange` function publish message to RabbitMq exchange:
 ```php
 <?php
 
+namespace App\Https\Controllers;
+
 use Illuminate\Http\Request;
 use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
 
@@ -114,6 +113,8 @@ If you have multiply connection to RabbitMq, you can publish a message with `con
 
 ```php
 <?php
+
+namespace App\Https\Controllers;
 
 use Illuminate\Http\Request;
 use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
@@ -146,14 +147,22 @@ For example:
 
 namespace App\AMQP\Handlers;
 
+use Usmonaliyev\SimpleRabbit\MQ\Message;
+
 class FooHandler
 {
-    public function handle()
+    public function handle(Message $message)
     {
         // do something...
+        
+        $message->ack();
+        
+        return ['ok' => true];
     }
 }
 ```
+
+Don't forget acknowledge message end of process, else consumer does not accept next message.
 
 Then register your handler in `routes/amqp-handlers.php` file.
 
@@ -169,16 +178,25 @@ ActionMQ::register('create-foo', [FooHandler::class, 'handle']);
 To consume messages use:
 
 ```shell
-php artisan amqp:consume
+php artisan amqp:consume connection? queue?
 ```
 
-## Contacts
+The command requires two arguments which are `connection` and `queue`.\
+If you don't give them, command uses default connection and queue.
 
-We have telegram group for discussion:
+<div align="center">
+  <h2>Contracts</h2>
+  <div style="margin-bottom: 20px;">
+    <a href="https://t.me/+P7PlyAdDQAJjM2Fi">
+      We have a telegram group, you can join use.
+    </a>
+  </div>
+  <img width="30%" src="https://github.com/usmonaliyev99/usmonaliyev99/blob/main/assets/have-you-joined-us.gif?raw=true">
+</div>
 
-[You can join us with this link](https://t.me/+P7PlyAdDQAJjM2Fi)
-
-## Plans
+<div align="center">
+  <h2>Plans</h2>
+</div>
 
 - [x] Setup consumer mode as `routes/actions.php`
 - [ ] Adding `ampq:define-queues --exchange` command.
@@ -188,12 +206,16 @@ We have telegram group for discussion:
 - [ ] Setup testing.
 - [x] Creating telegram group for discussion
 
-## Testing
+<div align="center">
+  <h2>Testing</h2>
+</div>
 
 ```bash
 composer test
 ```
 
-## License
+<div align="center">
+  <h2>License</h2>
+</div>
 
 The [MIT](LICENSE.md) License.
