@@ -1,0 +1,13 @@
+<?php
+
+namespace {{ namespace }};
+
+use Usmonaliyev\SimpleRabbit\MQ\Message;
+
+class {{ class }}
+{
+    public function handler(Message $message)
+    {
+        // something...
+    }
+}

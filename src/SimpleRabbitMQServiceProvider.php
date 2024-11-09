@@ -5,6 +5,7 @@ namespace Usmonaliyev\SimpleRabbit;
 use Illuminate\Support\ServiceProvider;
 use Usmonaliyev\SimpleRabbit\Console\Commands\ConsumeCommand;
 use Usmonaliyev\SimpleRabbit\Console\Commands\DefineQueueCommand;
+use Usmonaliyev\SimpleRabbit\Console\Commands\MakeHandlerCommand;
 use Usmonaliyev\SimpleRabbit\MQ\ConnectionManager;
 
 class SimpleRabbitMQServiceProvider extends ServiceProvider
@@ -22,6 +23,7 @@ class SimpleRabbitMQServiceProvider extends ServiceProvider
             $this->commands([
                 DefineQueueCommand::class,
                 ConsumeCommand::class,
+                MakeHandlerCommand::class,
             ]);
         }
     }
