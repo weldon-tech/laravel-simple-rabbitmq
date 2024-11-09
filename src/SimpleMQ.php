@@ -49,4 +49,24 @@ class SimpleMQ
         // Resolve ConnectionManager only once and reuse it for consistency.
         return App::make(ConnectionManager::class);
     }
+
+    /**
+     * Set a message body directly with default connection and default queue
+     *
+     * @throws Exception
+     */
+    public function setBody(array $body): MQ\MessageBuilder
+    {
+        return $this->connection()->queue()->setBody($body);
+    }
+
+    /**
+     * Set a message headers with default connection and default queue
+     *
+     * @throws Exception
+     */
+    public function setHeaders(array $headers): MQ\MessageBuilder
+    {
+        return $this->connection()->queue()->setHeaders($headers);
+    }
 }

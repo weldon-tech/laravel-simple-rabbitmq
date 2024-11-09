@@ -6,7 +6,7 @@ use Exception;
 use Illuminate\Support\Facades\App;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class ActionBuilder
+class Publisher
 {
     /**
      * The action type ("QUEUE" or "EXCHANGE").

@@ -17,7 +17,7 @@ class SimpleRabbitMQServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__.'/../config/simple-mq.php' => config_path('simple-mq.php')], 'simple-mq');
 
-            $this->publishes([__DIR__.'/../routes/actions.php' => base_path('routes/actions.php')]);
+            $this->publishes([__DIR__.'/../routes/amqp-handlers.php' => base_path('routes/amqp-handlers.php')]);
 
             $this->commands([
                 DefineQueueCommand::class,

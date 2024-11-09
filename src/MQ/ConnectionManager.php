@@ -9,19 +9,9 @@ use Usmonaliyev\SimpleRabbit\Exceptions\NoNameQueueException;
 class ConnectionManager
 {
     /**
-     * @var array
-     */
-    private mixed $config;
-
-    /**
      * @var array<string, Connection>
      */
     private array $connections = [];
-
-    public function __construct()
-    {
-        $this->config = Config::get('simple-mq');
-    }
 
     /**
      * Get a connection instance.
@@ -30,7 +20,7 @@ class ConnectionManager
      */
     public function connection(?string $name = null): Connection
     {
-        $name = $name ?? $this->config['queue'] ?? null;
+        $name = $name ?? Config::get('simple-mq.connection');
 
         if ($name === null) {
             throw new NoNameQueueException;

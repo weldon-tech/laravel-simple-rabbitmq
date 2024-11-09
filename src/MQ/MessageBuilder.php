@@ -52,11 +52,11 @@ class MessageBuilder
     }
 
     /**
-     * Creates an ActionBuilder instance to handle specific actions.
+     * Creates a Publisher instance to handle specific actions.
      */
-    public function action(string $name): ActionBuilder
+    public function handler(string $name): Publisher
     {
-        return new ActionBuilder($this, $name);
+        return new Publisher($this, $name);
     }
 
     /**
