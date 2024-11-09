@@ -11,13 +11,13 @@ class ActionBuilder
     /**
      * The action type ("QUEUE" or "EXCHANGE").
      */
-    private string $action;
+    private string $handler;
 
     private MessageBuilder $messageBuilder;
 
-    public function __construct(MessageBuilder $messageBuilder, string $action)
+    public function __construct(MessageBuilder $messageBuilder, string $handler)
     {
-        $this->action = $action;
+        $this->handler = $handler;
         $this->messageBuilder = $messageBuilder;
     }
 
@@ -29,7 +29,7 @@ class ActionBuilder
         $type = $this->messageBuilder->getType();
 
         $message = $this->messageBuilder
-            ->addHeader('Action', $this->action)
+            ->addHeader('handler', $this->handler)
             ->getMessage();
 
         $to = $this->messageBuilder->to();

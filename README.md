@@ -58,8 +58,118 @@ SIMPLE_MQ_PASSWORD=
 
 ## Usage
 
+The package can publish and consume messages
+
+### Publishing
+
+You can publish a message with default connection and default queue:
+
 ```php
-// Usage description here
+<?php
+
+use Illuminate\Http\Request;
+use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+
+class FooController
+{
+    public function createFoo(Request $request)
+    {
+        // Something..
+        
+        SimpleMQ::queue('foo-queue')
+          ->setBody(['name' => 'First Foo'])
+          ->handler('create-foo')
+          ->publish();
+          
+        return response()->json(['message' => 'OK']);
+    }
+}
+```
+
+Also, `exchange` function publish message to RabbitMq exchange:
+
+```php
+<?php
+
+use Illuminate\Http\Request;
+use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+
+class FooController
+{
+    public function createFoo(Request $request)
+    {
+        // Something..
+        
+        SimpleMQ::exchange('foo-exchange')
+          ->setBody(['name' => 'First Foo'])
+          ->handler('create-foo')
+          ->publish();
+          
+        return response()->json(['message' => 'OK']);
+    }
+}
+```
+
+If you have multiply connection to RabbitMq, you can publish a message with `connection` method.
+
+```php
+<?php
+
+use Illuminate\Http\Request;
+use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+
+class FooController
+{
+    public function createFoo(Request $request)
+    {
+        // Something..
+        
+        SimpleMQ::connection('foo-connection')
+          ->queue('foo-queue')
+          ->setBody(['name' => 'First Foo'])
+          ->handler('create-foo')
+          ->publish();
+          
+        return response()->json(['message' => 'OK']);
+    }
+}
+```
+
+### Consuming
+
+Create `app/AMQP/Handlers` folder and create your handler classes.
+
+For example:
+
+```php
+<?php
+
+namespace App\AMQP\Handlers;
+
+class FooHandler
+{
+    public function handle()
+    {
+        // do something...
+    }
+}
+```
+
+Then register your handler in `routes/amqp-handlers.php` file.
+
+```php
+<?php
+
+use \App\AMQP\Handlers\FooHandler;
+use \Usmonaliyev\SimpleRabbit\Facades\ActionMQ;
+
+ActionMQ::register('create-foo', [FooHandler::class, 'handle']);
+```
+
+To consume messages use:
+
+```shell
+php artisan amqp:consume
 ```
 
 ## Contacts
@@ -73,10 +183,10 @@ We have telegram group for discussion:
 - [x] Setup consumer mode as `routes/actions.php`
 - [ ] Adding `ampq:define-queues --exchange` command.
 - [ ] Adding `ampq:make-action {action} {function}` command.
-- [ ] Adding `ampq:listen {connection=''} {queue=''}` command.
+- [x] Adding `ampq:listen {connection=''} {queue=''}` command.
 - [ ] Writing `README.UZ.md` and `README.RU.md` files.
 - [ ] Setup testing.
-- [ ] Creating telegram group for discussion
+- [x] Creating telegram group for discussion
 
 ## Testing
 
