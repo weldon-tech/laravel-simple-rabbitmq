@@ -4,6 +4,12 @@
 
 The package for simplified RabbitMQ usage, supporting multiple connections, easy publishing, and consumer mode.
 
+## Documentation
+
+- [Русский (RU)](README.RU.md)
+- [O'zbekcha (UZ)](README.UZ.md)
+
+
 ### Key Features
 
 - **Multiple Connections**: Effortlessly manage multiple RabbitMQ connections within the same application.
@@ -200,7 +206,6 @@ If you don't give them, command uses default connection and queue.
 </div>
 
 - [ ] Exchange configuration in `config/simple-mq.php`
-- [ ] Writing `README.UZ.md` and `README.RU.md` files.
 - [ ] Setup testing.
 
 <div align="center">
