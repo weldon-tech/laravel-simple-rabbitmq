@@ -199,13 +199,9 @@ If you don't give them, command uses default connection and queue.
   <h2>Plans</h2>
 </div>
 
-- [x] Setup consumer mode as `routes/actions.php`
-- [x] Adding `ampq:define-queues --exchange` command.
-- [x] Adding `ampq:make-action {action} {function}` command.
-- [x] Adding `ampq:listen {connection=''} {queue=''}` command.
+- [ ] Exchange configuration in `config/simple-mq.php`
 - [ ] Writing `README.UZ.md` and `README.RU.md` files.
 - [ ] Setup testing.
-- [x] Creating telegram group for discussion
 
 <div align="center">
   <h2>Testing</h2>
