@@ -2,10 +2,12 @@
   <h1>laravel-simple-rabbitmq</h1>
 </div>
 
-![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/usmonaliyev/laravel-simple-rabbitmq/php)
-![Total Downloads](https://img.shields.io/packagist/dt/usmonaliyev/laravel-simple-rabbitmq.svg)
-![Latest Version on Packagist](https://img.shields.io/packagist/v/usmonaliyev/laravel-simple-rabbitmq.svg)
-![Packagist License](https://img.shields.io/packagist/l/usmonaliyev/laravel-simple-rabbitmq)
+<div align="center">
+  <img src="https://img.shields.io/packagist/dependency-v/usmonaliyev/laravel-simple-rabbitmq/php">
+  <img src="https://img.shields.io/packagist/dt/usmonaliyev/laravel-simple-rabbitmq.svg">
+  <img src="https://img.shields.io/packagist/v/usmonaliyev/laravel-simple-rabbitmq.svg">
+  <img src="https://img.shields.io/packagist/l/usmonaliyev/laravel-simple-rabbitmq">
+</div>
 
 The package for simplified RabbitMQ usage, supporting multiple connections, easy publishing, and consumer mode.
 
@@ -13,7 +15,6 @@ The package for simplified RabbitMQ usage, supporting multiple connections, easy
 
 - [Русский (RU)](README.RU.md)
 - [O'zbekcha (UZ)](README.UZ.md)
-
 
 ### Key Features
 
