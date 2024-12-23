@@ -10,7 +10,10 @@ use Usmonaliyev\SimpleRabbit\Exceptions\ConnectionNotFoundException;
 
 class Connection
 {
-    private string $connectionName;
+    /**
+     * Connection name which is in ~/config/simple-mq.php
+     */
+    private $name;
 
     private AMQPStreamConnection $connection;
 
@@ -23,7 +26,7 @@ class Connection
      */
     public function __construct(string $name)
     {
-        $this->connectionName = $name;
+        $this->name = $name;
 
         $config = Config::get("simple-mq.connections.$name");
 
@@ -58,7 +61,7 @@ class Connection
     {
         $queueName = $queueName ?? Config::get('simple-mq.queue');
 
-        return new MessageBuilder($this->connectionName, $queueName, 'QUEUE');
+        return new MessageBuilder($this->name, $queueName, 'QUEUE');
     }
 
     /**
@@ -66,7 +69,7 @@ class Connection
      */
     public function exchange($exchangeName): MessageBuilder
     {
-        return new MessageBuilder($this->connectionName, $exchangeName, 'EXCHANGE');
+        return new MessageBuilder($this->name, $exchangeName, 'EXCHANGE');
     }
 
     /**
