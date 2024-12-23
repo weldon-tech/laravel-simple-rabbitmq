@@ -8,17 +8,29 @@ use PhpAmqpLib\Message\AMQPMessage;
 
 class Publisher
 {
+    private AMQPMessage $message;
+
+    /**
+     * Connection name which is in ~/config/simple-mq.php
+     */
+    private string $connection;
+
     /**
      * The action type ("QUEUE" or "EXCHANGE").
      */
-    private string $handler;
+    private string $type;
 
-    private MessageBuilder $messageBuilder;
+    /**
+     * Queue or exchange name
+     */
+    private string $to;
 
-    public function __construct(MessageBuilder $messageBuilder, string $handler)
+    public function __construct(AMQPMessage $message, string $connection, string $type, string $to)
     {
-        $this->handler = $handler;
-        $this->messageBuilder = $messageBuilder;
+        $this->message = $message;
+        $this->connection = $connection;
+        $this->type = $type;
+        $this->to = $to;
     }
 
     /**
@@ -26,15 +38,7 @@ class Publisher
      */
     public function publish(): void
     {
-        $type = $this->messageBuilder->getType();
-
-        $message = $this->messageBuilder
-            ->addHeader('handler', $this->handler)
-            ->getMessage();
-
-        $to = $this->messageBuilder->to();
-
-        $this->{$type}($message, $to);
+        $this->{$this->type}();
     }
 
     /**
@@ -42,12 +46,12 @@ class Publisher
      *
      * @throws Exception
      */
-    private function QUEUE(AMQPMessage $message, string $queue): void
+    private function QUEUE(): void
     {
         $connection = $this->getConnection();
         $channel = $connection->getChannel();
 
-        $channel->basic_publish($message, '', $queue);
+        $channel->basic_publish($this->message, '', $this->to);
     }
 
     /**
@@ -55,14 +59,12 @@ class Publisher
      *
      * @throws Exception
      */
-    private function EXCHANGE(AMQPMessage $message, string $exchange): void
+    private function EXCHANGE(): void
     {
         $connection = $this->getConnection();
         $channel = $connection->getChannel();
 
-        $routingKey = $this->messageBuilder->getRoutingKey();
-
-        $channel->basic_publish($message, $exchange, $routingKey);
+        $channel->basic_publish($this->message, $this->to, ''); // TODO Routing key
     }
 
     /**
@@ -74,7 +76,7 @@ class Publisher
     {
         $manager = App::make(ConnectionManager::class);
 
-        return $manager->connection($this->messageBuilder->getConnectionName());
+        return $manager->connection($this->connection);
 
     }
 }

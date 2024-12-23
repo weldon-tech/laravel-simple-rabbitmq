@@ -8,9 +8,9 @@ use PhpAmqpLib\Wire\AMQPTable;
 class MessageBuilder
 {
     /**
-     * RabbitMq connection name
+     * Connection name which is in ~/config/simple-mq.php
      */
-    private string $connectionName;
+    private string $connection;
 
     /**
      * The message will send to this queue or exchange
@@ -22,14 +22,7 @@ class MessageBuilder
      */
     private string $type;
 
-    /**
-     * This is a message attribute used in exchanges
-     */
-    private string $routingKey = '';
-
     private array $body = [];
-
-    private ?AMQPMessage $message = null;
 
     // Properties array containing message properties with default values
     private array $properties = [
@@ -42,9 +35,9 @@ class MessageBuilder
         'timestamp' => null,
     ];
 
-    public function __construct(string $connectionName, string $to, string $type)
+    public function __construct(string $connection, string $to, string $type)
     {
-        $this->connectionName = $connectionName;
+        $this->connection = $connection;
         $this->to = $to;
         $this->type = $type;
 
@@ -56,22 +49,22 @@ class MessageBuilder
      */
     public function handler(string $name): Publisher
     {
-        return new Publisher($this, $name);
+        $this->addHeader('handler', $name);
+
+        $message = $this->getMessage();
+
+        return new Publisher($message, $this->connection, $this->type, $this->to);
     }
 
     /**
      * Get the AMQPMessage instance
      */
-    public function getMessage(): AMQPMessage
+    private function getMessage(): AMQPMessage
     {
-        if ($this->message === null) {
-            $body = $this->getBodyAsJson();
-            $properties = $this->toProperties();
+        $body = $this->getBodyAsJson();
+        $properties = $this->toProperties();
 
-            $this->message = new AMQPMessage($body, $properties);
-        }
-
-        return $this->message;
+        return new AMQPMessage($body, $properties);
     }
 
     /**
@@ -94,19 +87,6 @@ class MessageBuilder
         return $this;
     }
 
-    public function getRoutingKey(): string
-    {
-        return $this->routingKey;
-    }
-
-    /**
-     * Get the headers of the message
-     */
-    public function getHeaders(): array
-    {
-        return $this->properties['application_headers'];
-    }
-
     /**
      * Set the message body
      *
@@ -115,7 +95,6 @@ class MessageBuilder
     public function setBody(array $body): self
     {
         $this->body = $body;
-        $this->message = null;
 
         return $this;
     }
@@ -123,15 +102,15 @@ class MessageBuilder
     /**
      * Get the body as a JSON string
      */
-    public function getBodyAsJson(): string
+    protected function getBodyAsJson(): string
     {
         return json_encode($this->body);
     }
 
     protected function toProperties(): array
     {
-        $header = $this->buildHeader();
-        $this->properties['application_headers'] = $header;
+        $headers = $this->buildHeaders();
+        $this->properties['application_headers'] = $headers;
 
         return $this->properties;
     }
@@ -139,32 +118,8 @@ class MessageBuilder
     /**
      * Builds and returns message header
      */
-    private function buildHeader(): AMQPTable
+    private function buildHeaders(): AMQPTable
     {
         return new AMQPTable($this->properties['application_headers']);
-    }
-
-    /**
-     * Returns QUEUE or EXCHANGE
-     */
-    public function getType(): string
-    {
-        return $this->type;
-    }
-
-    /**
-     * Returns connection name
-     */
-    public function getConnectionName(): string
-    {
-        return $this->connectionName;
-    }
-
-    /**
-     * If returns name of ("QUEUE" or "EXCHANGE")
-     */
-    public function to(): string
-    {
-        return $this->to;
     }
 }

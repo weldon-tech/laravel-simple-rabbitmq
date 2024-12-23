@@ -123,4 +123,32 @@ class Message implements Arrayable
     {
         return $this->body;
     }
+
+    /**
+     * Dump this class
+     */
+    public function dd(): void
+    {
+        dump($this);
+    }
+
+    /**
+     * Get body as json
+     */
+    public function bodyAsJson(): bool|string
+    {
+        return json_encode($this->body);
+    }
+
+    /**
+     * Print message to log
+     */
+    public function log($ack = true): void
+    {
+        $body = $this->bodyAsJson();
+
+        $ack && $this->ack();
+
+        echo sprintf('%s | %s', date('Y-m-d H:i:s'), $body).PHP_EOL;
+    }
 }
