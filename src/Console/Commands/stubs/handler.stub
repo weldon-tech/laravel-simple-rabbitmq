@@ -9,5 +9,7 @@ class {{ class }}
     public function handler(Message $message)
     {
         // something...
+
+        $message->ack();
     }
 }
