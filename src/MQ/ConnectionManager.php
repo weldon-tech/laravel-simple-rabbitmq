@@ -4,7 +4,7 @@ namespace Usmonaliyev\SimpleRabbit\MQ;
 
 use Exception;
 use Illuminate\Support\Facades\Config;
-use Usmonaliyev\SimpleRabbit\Exceptions\NoNameQueueException;
+use Usmonaliyev\SimpleRabbit\Exceptions\DefaultConnectionNotFoundException;
 
 class ConnectionManager
 {
@@ -22,8 +22,8 @@ class ConnectionManager
     {
         $name = $name ?? Config::get('simple-mq.connection');
 
-        if ($name === null) {
-            throw new NoNameQueueException;
+        if (! $name) {
+            throw new DefaultConnectionNotFoundException;
         }
 
         return $this->connections[$name] ??= $this->make($name);

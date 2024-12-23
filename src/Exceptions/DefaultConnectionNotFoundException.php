@@ -5,7 +5,7 @@ namespace Usmonaliyev\SimpleRabbit\Exceptions;
 use Exception;
 use Throwable;
 
-class NoNameQueueException extends Exception
+class DefaultConnectionNotFoundException extends Exception
 {
     /**
      * NoNameQueueException constructor.
