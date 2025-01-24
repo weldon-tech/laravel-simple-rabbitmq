@@ -17,8 +17,6 @@ class Connection
 
     private AMQPStreamConnection $connection;
 
-    private ?AMQPChannel $channel = null;
-
     /**
      * Initializes the RabbitMQ connection with the provided configuration.
      *
@@ -112,7 +110,6 @@ class Connection
      */
     public function __destruct()
     {
-        $this->channel?->close();
         $this->connection->close();
     }
 }
