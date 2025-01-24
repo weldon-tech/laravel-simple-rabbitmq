@@ -83,13 +83,18 @@ class Connection
     }
 
     /**
-     * Returns a channel, creating one if it does not already exist.
+     * Retrieves an AMQP channel for the current connection.
+     * If no channel exists, a new channel is created and returned.
+     * Channels are used to interact with RabbitMQ, allowing you to
+     * publish messages, consume messages, and perform other operations.
      *
-     * @throws Exception
+     * @return AMQPChannel The channel associated with the current connection.
+     *
+     * @throws Exception If the channel cannot be created or the connection is invalid.
      */
     public function getChannel(): AMQPChannel
     {
-        return $this->channel ??= $this->connection->channel();
+        return $this->connection->channel();
     }
 
     /**
