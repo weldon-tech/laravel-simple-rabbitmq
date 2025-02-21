@@ -191,17 +191,6 @@ php artisan amqp:consume connection? queue?
 и очередь.
 
 <div align="center">
-  <h2>Контракты</h2>
-  <div>
-    <a href="https://t.me/+P7PlyAdDQAJjM2Fi" target="_blank">
-      У нас есть группа в Telegram, вы можете присоединиться к нам.
-    </a>
-  </div>
-  <br/>
-  <img width="30%" src="https://github.com/weldon/weldon/blob/main/assets/have-you-joined-us.gif?raw=true">
-</div>
-
-<div align="center">
   <h2>Планы</h2>
 </div>
 

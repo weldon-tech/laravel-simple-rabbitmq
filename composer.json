@@ -7,7 +7,7 @@
     "rabbit",
     "mq"
   ],
-  "homepage": "https://github.com/weldon/laravel-simple-rabbitmq",
+  "homepage": "https://github.com/weldon-tech/laravel-simple-rabbitmq",
   "license": "MIT",
   "type": "library",
   "authors": [

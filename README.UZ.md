@@ -189,17 +189,6 @@ Bu buyruq ikkita argumentni talab qiladi: `connection` va `queue`.
 Agar siz ularni bermasangiz, buyruq default connection va queueni ishlatadi.
 
 <div align="center">
-  <h2>Shartnomalar</h2>
-  <div>
-    <a href="https://t.me/+P7PlyAdDQAJjM2Fi" target="_blank">
-      Bizda Telegram guruhi bor, siz qo‘shilishingiz mumkin.
-    </a>
-  </div>
-  <br/>
-  <img width="30%" src="https://github.com/weldon/weldon/blob/main/assets/have-you-joined-us.gif?raw=true">
-</div>
-
-<div align="center">
   <h2>Rejalar</h2>
 </div>
 
