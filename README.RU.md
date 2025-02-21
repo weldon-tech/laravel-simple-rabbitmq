@@ -29,13 +29,13 @@
 Вы можете установить пакет через Composer:
 
 ```bash
-composer require usmonaliyev/laravel-simple-rabbitmq
+composer require weldon/laravel-simple-rabbitmq
 ```
 
 На следующем этапе необходимо опубликовать конфигурационные файлы и файлы регистрации действий:
 
 ```bash
-php artisan vendor:publish --provider="Usmonaliyev\SimpleRabbit\SimpleRabbitMQServiceProvider"
+php artisan vendor:publish --provider="Weldon\SimpleRabbit\SimpleRabbitMQServiceProvider"
 ```
 
 В результате выполнения этой команды у вас появится файл конфигурации `config/simple-mq.php` и файл регистрации
@@ -71,7 +71,7 @@ SIMPLE_MQ_PASSWORD=
 <?php
 
 use Illuminate\Http\Request;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class FooController
 {
@@ -97,7 +97,7 @@ class FooController
 namespace App\Https\Controllers;
 
 use Illuminate\Http\Request;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class FooController
 {
@@ -123,7 +123,7 @@ class FooController
 namespace App\Https\Controllers;
 
 use Illuminate\Http\Request;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class FooController
 {
@@ -153,7 +153,7 @@ class FooController
 
 namespace App\AMQP\Handlers;
 
-use Usmonaliyev\SimpleRabbit\MQ\Message;
+use Weldon\SimpleRabbit\MQ\Message;
 
 class FooHandler
 {
@@ -176,7 +176,7 @@ class FooHandler
 <?php
 
 use \App\AMQP\Handlers\FooHandler;
-use \Usmonaliyev\SimpleRabbit\Facades\ActionMQ;
+use \Weldon\SimpleRabbit\Facades\ActionMQ;
 
 ActionMQ::register('create-foo', [FooHandler::class, 'handle']);
 ```
@@ -198,7 +198,7 @@ php artisan amqp:consume connection? queue?
     </a>
   </div>
   <br/>
-  <img width="30%" src="https://github.com/usmonaliyev99/usmonaliyev99/blob/main/assets/have-you-joined-us.gif?raw=true">
+  <img width="30%" src="https://github.com/weldon/weldon/blob/main/assets/have-you-joined-us.gif?raw=true">
 </div>
 
 <div align="center">

@@ -1,3 +1,3 @@
 <?php
 
-use Usmonaliyev\SimpleRabbit\Facades\ActionMQ;
+use Weldon\SimpleRabbit\Facades\ActionMQ;

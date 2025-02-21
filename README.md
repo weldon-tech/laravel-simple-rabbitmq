@@ -3,10 +3,10 @@
 </div>
 
 <div align="center">
-  <img src="https://img.shields.io/packagist/dependency-v/usmonaliyev/laravel-simple-rabbitmq/php">
-  <img src="https://img.shields.io/packagist/dt/usmonaliyev/laravel-simple-rabbitmq.svg">
-  <img src="https://img.shields.io/packagist/v/usmonaliyev/laravel-simple-rabbitmq.svg">
-  <img src="https://img.shields.io/packagist/l/usmonaliyev/laravel-simple-rabbitmq">
+  <img src="https://img.shields.io/packagist/dependency-v/weldon/laravel-simple-rabbitmq/php">
+  <img src="https://img.shields.io/packagist/dt/weldon/laravel-simple-rabbitmq.svg">
+  <img src="https://img.shields.io/packagist/v/weldon/laravel-simple-rabbitmq.svg">
+  <img src="https://img.shields.io/packagist/l/weldon/laravel-simple-rabbitmq">
 </div>
 
 The package for simplified RabbitMQ usage, supporting multiple connections, easy publishing, and consumer mode.
@@ -36,13 +36,13 @@ The package for simplified RabbitMQ usage, supporting multiple connections, easy
 You can install the package via composer:
 
 ```bash
-composer require usmonaliyev/laravel-simple-rabbitmq
+composer require weldon/laravel-simple-rabbitmq
 ```
 
 Next step you must publish config and action register files:
 
 ```bash
-php artisan vendor:publish --provider="Usmonaliyev\SimpleRabbit\SimpleRabbitMQServiceProvider"
+php artisan vendor:publish --provider="Weldon\SimpleRabbit\SimpleRabbitMQServiceProvider"
 ```
 
 As a result of this command, you will have a configuration file `config/simple-mq.php` and a registry file
@@ -77,7 +77,7 @@ You can publish a message with default connection and default queue:
 <?php
 
 use Illuminate\Http\Request;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class FooController
 {
@@ -103,7 +103,7 @@ Also, `exchange` function publish message to RabbitMq exchange:
 namespace App\Https\Controllers;
 
 use Illuminate\Http\Request;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class FooController
 {
@@ -129,7 +129,7 @@ If you have multiply connection to RabbitMq, you can publish a message with `con
 namespace App\Https\Controllers;
 
 use Illuminate\Http\Request;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class FooController
 {
@@ -159,7 +159,7 @@ For example:
 
 namespace App\AMQP\Handlers;
 
-use Usmonaliyev\SimpleRabbit\MQ\Message;
+use Weldon\SimpleRabbit\MQ\Message;
 
 class FooHandler
 {
@@ -182,7 +182,7 @@ Then register your handler in `routes/amqp-handlers.php` file.
 <?php
 
 use \App\AMQP\Handlers\FooHandler;
-use \Usmonaliyev\SimpleRabbit\Facades\ActionMQ;
+use \Weldon\SimpleRabbit\Facades\ActionMQ;
 
 ActionMQ::register('create-foo', [FooHandler::class, 'handle']);
 ```
@@ -204,7 +204,7 @@ If you don't give them, command uses default connection and queue.
     </a>
   </div>
   <br/>
-  <img width="30%" src="https://github.com/usmonaliyev99/usmonaliyev99/blob/main/assets/have-you-joined-us.gif?raw=true">
+  <img width="30%" src="https://github.com/weldon/weldon/blob/main/assets/have-you-joined-us.gif?raw=true">
 </div>
 
 <div align="center">

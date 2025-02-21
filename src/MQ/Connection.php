@@ -1,12 +1,12 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\MQ;
+namespace Weldon\SimpleRabbit\MQ;
 
 use Exception;
 use Illuminate\Support\Facades\Config;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
-use Usmonaliyev\SimpleRabbit\Exceptions\ConnectionNotFoundException;
+use Weldon\SimpleRabbit\Exceptions\ConnectionNotFoundException;
 
 class Connection
 {

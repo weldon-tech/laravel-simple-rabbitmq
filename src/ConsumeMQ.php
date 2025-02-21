@@ -1,13 +1,13 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit;
+namespace Weldon\SimpleRabbit;
 
 use Exception;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
-use Usmonaliyev\SimpleRabbit\MQ\ConnectionManager;
+use Weldon\SimpleRabbit\MQ\ConnectionManager;
 
 class ConsumeMQ
 {

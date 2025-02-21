@@ -1,6 +1,6 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\Console\Commands;
+namespace Weldon\SimpleRabbit\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit;
+namespace Weldon\SimpleRabbit;
 
 use Exception;
 use Illuminate\Support\Facades\App;
 use PhpAmqpLib\Message\AMQPMessage;
-use Usmonaliyev\SimpleRabbit\MQ\Message;
+use Weldon\SimpleRabbit\MQ\Message;
 
 class ActionMQ
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\Facades;
+namespace Weldon\SimpleRabbit\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use RuntimeException;
 
 /**
  * @method static void listen(callable $callback)
- * @method static \Usmonaliyev\SimpleRabbit\ConsumeMQ queue(string $name = null)
- * @method static \Usmonaliyev\SimpleRabbit\ConsumeMQ connection(string $name = null)
+ * @method static \Weldon\SimpleRabbit\ConsumeMQ queue(string $name = null)
+ * @method static \Weldon\SimpleRabbit\ConsumeMQ connection(string $name = null)
  *
- * @see \Usmonaliyev\SimpleRabbit\ConsumeMQ
+ * @see \Weldon\SimpleRabbit\ConsumeMQ
  */
 class ConsumeMQ extends Facade
 {
@@ -22,6 +22,6 @@ class ConsumeMQ extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return \Usmonaliyev\SimpleRabbit\ConsumeMQ::class;
+        return \Weldon\SimpleRabbit\ConsumeMQ::class;
     }
 }

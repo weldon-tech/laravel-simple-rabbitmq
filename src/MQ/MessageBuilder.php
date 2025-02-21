@@ -1,6 +1,6 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\MQ;
+namespace Weldon\SimpleRabbit\MQ;
 
 use PhpAmqpLib\Message\AMQPMessage;
 use PhpAmqpLib\Wire\AMQPTable;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit;
+namespace Weldon\SimpleRabbit;
 
 use Exception;
 use Illuminate\Support\Facades\App;
-use Usmonaliyev\SimpleRabbit\MQ\Connection;
-use Usmonaliyev\SimpleRabbit\MQ\ConnectionManager;
+use Weldon\SimpleRabbit\MQ\Connection;
+use Weldon\SimpleRabbit\MQ\ConnectionManager;
 
 class SimpleMQ
 {

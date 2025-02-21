@@ -1,6 +1,6 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\MQ;
+namespace Weldon\SimpleRabbit\MQ;
 
 use Exception;
 use Illuminate\Support\Facades\App;

@@ -1,19 +1,19 @@
 {
-  "name": "usmonaliyev/laravel-simple-rabbitmq",
+  "name": "weldon/laravel-simple-rabbitmq",
   "description": "This package provides simple usage of rabbitmq.",
   "keywords": [
-    "usmonaliyev",
+    "weldon",
     "simple",
     "rabbit",
     "mq"
   ],
-  "homepage": "https://github.com/usmonaliyev/laravel-simple-rabbitmq",
+  "homepage": "https://github.com/weldon/laravel-simple-rabbitmq",
   "license": "MIT",
   "type": "library",
   "authors": [
     {
-      "name": "Temur Usmonaliyev",
-      "email": "t.usmonaliyev99@gmail.com",
+      "name": "Weldon",
+      "email": "t.info.weldonuz@gmail.com",
       "role": "Developer"
     }
   ],
@@ -31,12 +31,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Usmonaliyev\\SimpleRabbit\\": "src"
+      "Weldon\\SimpleRabbit\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Usmonaliyev\\SimpleRabbit\\Tests\\": "tests"
+      "Weldon\\SimpleRabbit\\Tests\\": "tests"
     }
   },
   "minimum-stability": "stable",
@@ -53,7 +53,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Usmonaliyev\\SimpleRabbit\\SimpleRabbitMQServiceProvider"
+        "Weldon\\SimpleRabbit\\SimpleRabbitMQServiceProvider"
       ]
     }
   }

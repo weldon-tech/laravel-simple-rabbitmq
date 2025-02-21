@@ -1,10 +1,10 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\Console\Commands;
+namespace Weldon\SimpleRabbit\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class DefineQueueCommand extends Command
 {

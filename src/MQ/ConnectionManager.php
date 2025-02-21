@@ -1,10 +1,10 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\MQ;
+namespace Weldon\SimpleRabbit\MQ;
 
 use Exception;
 use Illuminate\Support\Facades\Config;
-use Usmonaliyev\SimpleRabbit\Exceptions\DefaultConnectionNotFoundException;
+use Weldon\SimpleRabbit\Exceptions\DefaultConnectionNotFoundException;
 
 class ConnectionManager
 {

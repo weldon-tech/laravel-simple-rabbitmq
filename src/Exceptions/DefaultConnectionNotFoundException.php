@@ -1,6 +1,6 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\Exceptions;
+namespace Weldon\SimpleRabbit\Exceptions;
 
 use Exception;
 use Throwable;

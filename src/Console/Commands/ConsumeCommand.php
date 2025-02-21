@@ -1,12 +1,12 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\Console\Commands;
+namespace Weldon\SimpleRabbit\Console\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
-use Usmonaliyev\SimpleRabbit\ActionMQ;
-use Usmonaliyev\SimpleRabbit\Facades\ConsumeMQ;
+use Weldon\SimpleRabbit\ActionMQ;
+use Weldon\SimpleRabbit\Facades\ConsumeMQ;
 
 class ConsumeCommand extends Command
 {

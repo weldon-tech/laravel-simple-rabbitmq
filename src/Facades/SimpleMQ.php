@@ -1,10 +1,10 @@
 <?php
 
-namespace Usmonaliyev\SimpleRabbit\Facades;
+namespace Weldon\SimpleRabbit\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Usmonaliyev\SimpleRabbit\MQ\Connection;
-use Usmonaliyev\SimpleRabbit\MQ\MessageBuilder;
+use Weldon\SimpleRabbit\MQ\Connection;
+use Weldon\SimpleRabbit\MQ\MessageBuilder;
 
 /**
  * @method static Connection connection(?string $name = null)
@@ -13,7 +13,7 @@ use Usmonaliyev\SimpleRabbit\MQ\MessageBuilder;
  * @method static MessageBuilder setBody(array $body)
  * @method static MessageBuilder setHeaders(array $headers)
  *
- * @see \Usmonaliyev\SimpleRabbit\SimpleMQ
+ * @see \Weldon\SimpleRabbit\SimpleMQ
  */
 class SimpleMQ extends Facade
 {

@@ -27,13 +27,13 @@ consumer rejimiga ega.
 Paketni Composer orqali o'rnatishingiz mumkin:
 
 ```bash
-composer require usmonaliyev/laravel-simple-rabbitmq
+composer require weldon/laravel-simple-rabbitmq
 ```
 
 Keyingi qadamda konfiguratsiya va kerakli fayllarini nashr qilish kerak:
 
 ```bash
-php artisan vendor:publish --provider="Usmonaliyev\SimpleRabbit\SimpleRabbitMQServiceProvider"
+php artisan vendor:publish --provider="Weldon\SimpleRabbit\SimpleRabbitMQServiceProvider"
 ```
 
 Ushbu buyruq natijasida sizda `config/simple-mq.php` konfiguratsiya fayli va `routes/amqp-handlers.php` registratsiya
@@ -68,7 +68,7 @@ Default connection va queue dan foydalanib xabar yuborishingiz uchun:
 <?php
 
 use Illuminate\Http\Request;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class FooController
 {
@@ -94,7 +94,7 @@ Bundan tashqari, `exchange` funksiyasi xabarni RabbitMq exchange ga yuboradi:
 namespace App\Https\Controllers;
 
 use Illuminate\Http\Request;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class FooController
 {
@@ -120,7 +120,7 @@ Agar sizda RabbitMq bilan ko‘p ulanish mavjud bo‘lsa, `connection` funksiyas
 namespace App\Https\Controllers;
 
 use Illuminate\Http\Request;
-use Usmonaliyev\SimpleRabbit\Facades\SimpleMQ;
+use Weldon\SimpleRabbit\Facades\SimpleMQ;
 
 class FooController
 {
@@ -150,7 +150,7 @@ Masalan:
 
 namespace App\AMQP\Handlers;
 
-use Usmonaliyev\SimpleRabbit\MQ\Message;
+use Weldon\SimpleRabbit\MQ\Message;
 
 class FooHandler
 {
@@ -174,7 +174,7 @@ Keyin o'z handleringizni `routes/amqp-handlers.php` fayliga ro'yxatdan o'tkazing
 <?php
 
 use \App\AMQP\Handlers\FooHandler;
-use \Usmonaliyev\SimpleRabbit\Facades\ActionMQ;
+use \Weldon\SimpleRabbit\Facades\ActionMQ;
 
 ActionMQ::register('create-foo', [FooHandler::class, 'handle']);
 ```
@@ -196,7 +196,7 @@ Agar siz ularni bermasangiz, buyruq default connection va queueni ishlatadi.
     </a>
   </div>
   <br/>
-  <img width="30%" src="https://github.com/usmonaliyev99/usmonaliyev99/blob/main/assets/have-you-joined-us.gif?raw=true">
+  <img width="30%" src="https://github.com/weldon/weldon/blob/main/assets/have-you-joined-us.gif?raw=true">
 </div>
 
 <div align="center">

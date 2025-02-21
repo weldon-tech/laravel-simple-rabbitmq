@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use Usmonaliyev\SimpleRabbit\MQ\Message;
+use Weldon\SimpleRabbit\MQ\Message;
 
 class {{ class }}
 {
